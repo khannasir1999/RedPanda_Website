@@ -3,7 +3,7 @@ import FallingElements from "./FallingElements"
 
 const Interactivesection = () => {
     return (
-        <div className="bg-red-primary-100 h-full w-full rounded-3xl flex px-4 relative overflow-hidden interactive-section">
+        <div className="bg-[#FFFFFF] h-full w-full rounded-3xl flex px-4 relative overflow-hidden interactive-section">
             <FallingElements
                 elements={INTERACTIVE_ELEMENTS}
                 trigger="scroll"

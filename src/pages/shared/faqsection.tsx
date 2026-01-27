@@ -22,7 +22,7 @@ const Faqsection = () => {
   });
 
   return (
-    <section className="px-4 pt-5 bg-background-white md:h-screen flex flex-col overflow-hidden">
+    <section className="px-[48px] py-[40px] pt-3 bg-background-white flex flex-col overflow-hidden">
       <div ref={faqsheadingRef} className="shrink-0">
         <Sectionheading
           className="faqs-heading mb-2!"
@@ -38,7 +38,7 @@ const Faqsection = () => {
         />
       </div>
 
-      <div ref={faqsRef} className="flex-1 w-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
+      <div ref={faqsRef} className="w-full">
         <Accordian
           type="single"
           defaultValue="item-1"

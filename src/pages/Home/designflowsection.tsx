@@ -19,7 +19,7 @@ const Designflowsection = () => {
       ref={sectionRef}
       className='bg-black flex justify-center flex-col py-10 relative overflow-x-hidden'
     >
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-10 flex items-center justify-center overflow-hidden">
+      {/* <div className="pointer-events-none absolute inset-0 z-0 opacity-10 flex items-center justify-center overflow-hidden">
         <div className="w-full h-full">
           <Spline
             scene="https://prod.spline.design/tsuXkyAXIxOjjtG8/scene.splinecode"
@@ -30,7 +30,7 @@ const Designflowsection = () => {
             }}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="overflow-hidden flex items-center justify-center md:h-screen">
         <div className="relative z-20 ">
@@ -46,7 +46,7 @@ const Designflowsection = () => {
         </div>
       </div>
 
-      <div className="px-7 pt-10 relative z-10">
+      {/* <div className="px-7 pt-10 relative z-10">
         {WORKFLOW_CHIPS.map(({ key, ...rest }: WorkflowChip, index, arr) => (
           <Workflowchip
             key={key}
@@ -56,7 +56,7 @@ const Designflowsection = () => {
           />
         ))}
         <Workflowchipslines />
-      </div>
+      </div> */}
     </section>
   );
 };

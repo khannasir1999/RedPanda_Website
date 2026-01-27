@@ -23,22 +23,22 @@ const Home = () => {
       <Brandinglogos />
 
       <div ref={containerRef}>
-        <section className="home-overlay-section">
+        {/* <section className="home-overlay-section">
           <Videosection />
-        </section>
-        <section className="home-overlay-section">
+        </section> */}
+        {/* <section className="home-overlay-section">
           <Services />
         </section>
         <section className="home-overlay-section">
           <Casestudies />
-        </section>
+        </section> */}
         <section className="home-overlay-section">
           <Designflowsection />
         </section>
         <Creativitysection />
-        <Clientsreviews />
-        <Faqsection />
+        {/* <Clientsreviews /> */}
         <Journeysection />
+        <Faqsection />
       </div>
     </HeaderFooterLayout>
   );

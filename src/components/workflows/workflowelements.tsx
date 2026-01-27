@@ -215,7 +215,7 @@ const Workflowelements = () => {
                 delay={0.5}
                 className={cn("bg-red-primary-400 hover:bg-red-primary-500",
                     "w-[8vw] h-[8vw]",
-                    "right-[20vw] top-[40%]"
+                    "right-[19vw] top-[42%]",
                 )}
             />
         </div>

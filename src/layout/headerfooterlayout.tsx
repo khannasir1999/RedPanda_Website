@@ -16,13 +16,13 @@ import quotepagelogo from "../../public/assets/images/getquote/quotepagelogo.png
 
 
 const Footerlinksheading = ({ text }: { text: string }) => (
-  <h1 className="font-chillax text-[38px] md:text-[2.78vw] mb-4 font-medium tracking-tighter text-white">
+  <h1 className="font-chillax text-[24px] md:text-[1.75vw] mb-3 font-medium tracking-tight text-white">
     {text}
   </h1>
 );
 
 const Footerlink = ({ label }: { label: string }) => (
-  <p className="text-[20px] md:text-[1.46vw] text-[#FAFAFA] font-chillax font-[200] cursor-pointer">
+  <p className="text-[14px] md:text-[1.05vw] text-[#FAFAFA] font-chillax font-light cursor-pointer">
     {label}
   </p>
 );
@@ -93,7 +93,7 @@ const Header = ({ title }: { title?: string }) => {
           <div className="hidden md:inline-block">
             <Button
               variant="filled"
-              text={location.pathname === "/" ? "Get in Touch" : "Let’s Talk"}
+              text={location.pathname === "/" ? "Book a Consultation" : "Let’s Talk"}
               onClick={() => navigate("/contact")}
               className="px-5"
             />
@@ -110,7 +110,7 @@ const Footer = () => {
       <div className="flex justify-between items-center flex-col md:flex-row">
         <div className="w-full md:max-w-[30%] mb-8 md:mb-0">
           <img src={redpandalogo} alt="Loading..." width={300} />
-          <p className="text-[#FAFAFA] font-chillax text-[20px] md:text-[1.46vw] mt-8 mb-4 font-[200]">
+          <p className="text-[#FAFAFA] font-chillax text-[16px] md:text-[1.1vw] leading-relaxed mt-6 mb-4 font-light">
             We work hand-in-hand with your team, integrating seamlessly into
             your process. Your vision combined with our expertise leads to
             stronger, more impactful outcomes.
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
           <Button variant="filled" text="Company Profile" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-10 lg:gap-20 w-full md:w-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-8 lg:gap-16 w-full md:w-auto">
           <div>
             <Footerlinksheading text="Quick Links" />
             <div className="flex flex-col gap-3">
@@ -151,13 +151,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-[24px] font-chillax text-white text-left md:text-right font-[400] mt-20">
-        Red Panda Networks LLC © 2025
+      <p className="text-[16px] md:text-[1.1vw] font-chillax text-white text-left md:text-right font-normal mt-16">
+        Red Panda Networks LLC © 2025
       </p>
       <div className="flex justify-between items-center">
         <div className="md:flex gap-6 hidden">
           {FOOTER_SOCIAL_LINKS.map(({ label }: MenuItem) => (
-            <p className="text-[24px] md:text-[1.75vw] text-white font-chillax cursor-pointer transition-colors hover:text-red-primary-400">
+            <p className="text-[16px] md:text-[1.1vw] text-white font-chillax cursor-pointer transition-colors hover:text-red-primary-400">
               {label}
             </p>
           ))}

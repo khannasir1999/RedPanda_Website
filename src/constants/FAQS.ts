@@ -2,27 +2,33 @@ import type { QuestionAndAnswerType } from "../types/questionanswer";
 
 export const QUESTIONS_AND_ANSWERS: QuestionAndAnswerType[] = [
   {
-    question: "how much will it cost?",
+    question: "how much will it cost ?",
     answer:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem expedita ab! Ea accusantium laboriosam eos, dignissimos perferendis quibusdam, voluptas eaque aut at eum facere nam, consequuntur exercitationem sunt adipisci odit iure earum aspernatur labore a tempora ducimus. Dicta perspiciatis adipisci veritatis ratione repellendus iure tenetur temporibus, quia illum nihil?",
+      "Every project is scoped and priced based on your goals, timeline, and complexity. After a quick discovery call, we provide a clear, itemized quote with milestones and deliverables.",
     key: 1,
   },
   {
-    question: "how much will it cost?",
+    question: "What is the timeline for delivery?",
     answer:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem expedita ab! Ea accusantium laboriosam eos, dignissimos perferendis quibusdam, voluptas eaque aut at eum facere nam, consequuntur exercitationem sunt adipisci odit iure earum aspernatur labore a tempora ducimus. Dicta perspiciatis adipisci veritatis ratione repellendus iure tenetur temporibus, quia illum nihil?",
+      "Timelines depend on scope, but most website projects take 3–6 weeks. We share a detailed schedule after discovery so you know exactly what happens each week.",
     key: 2,
   },
   {
-    question: "how much will it cost?",
+    question: "who will be responsible for project management?",
     answer:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem expedita ab! Ea accusantium laboriosam eos, dignissimos perferendis quibusdam, voluptas eaque aut at eum facere nam, consequuntur exercitationem sunt adipisci odit iure earum aspernatur labore a tempora ducimus. Dicta perspiciatis adipisci veritatis ratione repellendus iure tenetur temporibus, quia illum nihil?",
+      "A dedicated project manager will be your main point of contact, coordinating timelines, feedback, and delivery with our design and development team.",
     key: 3,
   },
   {
-    question: "how much will it cost?",
+    question: "Are there any additional fees?",
     answer:
-      " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem expedita ab! Ea accusantium laboriosam eos, dignissimos perferendis quibusdam, voluptas eaque aut at eum facere nam, consequuntur exercitationem sunt adipisci odit iure earum aspernatur labore a tempora ducimus. Dicta perspiciatis adipisci veritatis ratione repellendus iure tenetur temporibus, quia illum nihil?",
+      "No hidden fees. Any optional add‑ons (extra pages, custom integrations, or ongoing support) are quoted and approved before we proceed.",
     key: 4,
+  },
+  {
+    question: "What are the payment terms?",
+    answer:
+      "We typically take a 50% deposit to start, with the remaining 50% due on final delivery. For larger engagements, we can split payments across milestones.",
+    key: 5,
   },
 ];

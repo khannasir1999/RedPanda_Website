@@ -11,7 +11,11 @@ import cloudyimage2 from "../../../public/assets/images/hero/cloudy2.png";
 
 const heroBackgroundImages = [
   {
-    image: "/assets/images/hero/image1.png",
+    image: "/src/assets/images/hero/image5.png",
+    link: 'https://www.google.com'
+  },
+  {
+    image: "/src/assets/images/hero/image2.png",
     link: 'https://www.google.com'
   },
   {
@@ -19,21 +23,21 @@ const heroBackgroundImages = [
     link: 'https://www.google.com'
   },
   {
-    image: "/assets/images/hero/image1.png",
+    image: "/src/assets/images/hero/image3.png",
     link: 'https://www.google.com'
   },
   {
-    image: "/assets/images/hero/image1.png",
+    image: "/src/assets/images/hero/image4.png",
     link: 'https://www.google.com'
   },
   {
-    image: "/assets/images/hero/image1.png",
+    image: "/src/assets/images/hero/image6.png",
     link: 'https://www.google.com'
   },
   {
-    image: "/assets/images/hero/image1.png",
+    image: "/src/assets/images/hero/image3.png",
     link: 'https://www.google.com'
-  },
+  }
 ];
 
 
@@ -139,7 +143,7 @@ const Herosection = () => {
 
 
       <div className="absolute bottom-0 left-0 -right-30 h-[53%] pointer-events-auto z-10 overflow-visible opacity-30">
-        <div className="relative w-full h-full flex justify-center items-center">
+        <div className="relative w-full h-full flex justify-center items-center -space-x-20 mt-50">
           {heroBackgroundImages.map((item, index) => {
             return (
               <a
@@ -152,7 +156,7 @@ const Herosection = () => {
                 rel="noopener noreferrer"
                 className="origin-top-left rounded-[33.76px] opacity-40 hover:opacity-60 transition-opacity cursor-pointer"
                 style={{
-                  transform: `rotate(23deg)`,
+                  transform: `matrix(0.92, -0.39, -0.13, 0.99, 0, 0)`,
                   zIndex: index + 1,
                 }}
               >
