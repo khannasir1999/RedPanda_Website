@@ -1,8 +1,9 @@
 import Sectionheading from "../../components/shared/Sectionheading";
-import Ratingscard from "../../components/reviews/ratingscard";
-import Button from "../../ui/button";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import Journeyrightsection from "@/components/journeys/journeyrightsection";
+import QuoteCard from "@/components/getquotes/quotecard";
+import { QUOTES } from "@/constants/quotes";
+import GetQuoteBgImages from "@/pages/GetAQuote/getquotebgimages";
 
 const Journeysection = () => {
 
@@ -18,30 +19,38 @@ const Journeysection = () => {
 
 
   return (
-    <section className="w-full py-5 md:h-screen overflow-x-hidden flex px-4 bg-background-white gap-10 flex-col-reverse md:flex-row md:min-h-screen">
-      <div className="shrink-0" ref={journeyLeftSectionRef}>
-        <div className="journey-left-section ">
-          <Sectionheading
-            heading={
-              <>
-                Start your <br className="md:inline-block hidden" />
-                <span className="font-medium text-red-primary-400">Journey</span>
-              </>
-            }
-            className="md:inline-block hidden !mb-0"
-          />
+    <section className="relative isolate w-full px-[48px] overflow-hidden bg-black py-12 md:py-16">
+      <GetQuoteBgImages />
+      <div className="absolute inset-0 bg-linear-to-b from-bg-black-100 to-[rgba(0,0,0,0.35)] z-1" />
 
-          <Ratingscard
-            showgoggleratings={false}
-            isClientReview={false}
-          />
+      <div className="relative z-2 w-full flex gap-20 flex-col md:flex-row">
+        <div className="shrink-0" ref={journeyLeftSectionRef}>
+          <div className="journey-left-section max-w-[520px]">
+            <Sectionheading
+              heading={
+                <>
+                  Start your <span className="md:inline-block hidden"> </span>
+                  <span className="font-medium text-red-primary-400">Journey</span>
+                </>
+              }
+              className="text-white mb-8!"
+            />
 
-          <Button variant="filled" text="Schedule a Call" btnclassname="w-full md:w-auto" className="mt-8" />
+            <div className="flex flex-col gap-5">
+              {QUOTES.map(({ country, description }, index) => (
+                <QuoteCard
+                  key={`country-${index}`}
+                  description={description}
+                  country={country}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div ref={journeyRightSectionRef}>
-        <Journeyrightsection />
+        <div ref={journeyRightSectionRef} className="journey-right-section w-full mt-15">
+          <Journeyrightsection darkmode />
+        </div>
       </div>
     </section>
   );
