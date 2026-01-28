@@ -1,24 +1,36 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import Serviceitem from "../../components/services/serviceitem";
-import Button from "../../ui/button";
-import Servicesintrotext from "../../components/services/servicesintrotext";
+// import Button from "../../ui/button";
 import type { ServiceItem } from "../../types/serviceitem";
 import { SERVICES } from "../../constants/services";
 import { useScrollFadeIn } from "../../hooks/useScrollFadeIn";
 import { useScrollSequence } from "../../hooks/useScrollSequence";
 import { useHeaderHeight } from "../../hooks/useHeaderHeight";
+import image2 from "../../assets/images/hero/image2.png";
+import image3 from "../../assets/images/hero/image3.png";
+import image4 from "../../assets/images/hero/image4.png";
+import image5 from "../../assets/images/hero/image5.png";
+import image6 from "../../assets/images/hero/image6.png";
+import Brandinglogos from "./brandinglogos";
 
 const Services = () => {
   const [activeSid, setActiveSid] = useState<string>(SERVICES[0].id);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { headerHeight, headerHeightStyle } = useHeaderHeight();
 
-  const activeSpline = useMemo(
-    () => SERVICES.find((s) => s.id === activeSid)?.spline,
-    [activeSid]
-  );
+  const activeImages = useMemo(() => {
+    const imageMap: Record<string, [string, string]> = {
+      uiux: [image5, image2],
+      product: [image2, image3],
+      web: [image4, image5],
+      saas: [image3, image6],
+      branding: [image6, image4],
+      development: [image2, image5],
+    };
+    return imageMap[activeSid] ?? [image5, image2];
+  }, [activeSid]);
 
   const { containerRef: serviceItemsRef } = useScrollFadeIn({
     selector: ".service-item",
@@ -27,9 +39,9 @@ const Services = () => {
   });
 
   const { containerRef: splinesContainerRef } = useScrollFadeIn({
-    selector: ".services-spline",
+    selector: ".services-media",
     direction: "right",
-    duration: 2,
+    duration: 0.8,
   });
 
   const handleScrollStep = (index: number) => {
@@ -43,13 +55,14 @@ const Services = () => {
     itemCount: SERVICES.length,
     onStepChange: handleScrollStep,
     isActive: window.innerWidth >= 768 ? true : false,
+    stepScrollPercent: 50,
   });
 
   return (
-    <section className="w-full bg-bg-black-100 py-15 px-4 video-services-overlay overflow-x-hidden relative"
+    <section className="w-full bg-bg-black-100 py-0 px-[48px] video-services-overlay overflow-x-hidden relative"
       style={headerHeightStyle}
     >
-      <Servicesintrotext />
+      {/* <Servicesintrotext /> */}
 
       <div
         className="flex gap-10 md:flex-row flex-col-reverse md:mt-[var(--header-h)]!"
@@ -71,52 +84,64 @@ const Services = () => {
         </div>
 
         <div
-          className="relative flex flex-col justify-end items-center w-full h-[600px] md:h-auto"
+          className="hidden md:flex relative flex-col justify-end items-center w-full h-[600px] md:h-auto"
           ref={splinesContainerRef}
         >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSid}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1 }}
-              className="absolute left-0 right-0 flex items-center justify-center"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="absolute left-0 right-0 flex items-center justify-center services-media"
             >
-              <div className="services-spline w-full md:w-[45vw]">
-                <video
-                  src={activeSpline}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-full md:w-[45vw] h-[360px] relative flex items-center justify-center">
+                {activeImages.map((imgSrc, index) => (
+                  <img
+                    key={`${activeSid}-${index}`}
+                    src={imgSrc}
+                    alt={`${activeSid} service ${index + 1}`}
+                    className="absolute w-[70%] max-w-[420px] h-[450px] min-[1600px]:h-auto rounded-[24px]"
+                    style={{
+                      transform:
+                        index === 0
+                          ? "matrix(0.92, -0.39, -0.13, 0.99, 0, 0)"
+                          : "matrix(0.92, -0.39, -0.13, 0.99, 0, 0)",
+                      left: index === 0 ? "35%" : "20%",
+                      bottom: index === 0 ? "28%" : "32%",
+                      zIndex: index === 0 ? 2 : 1,
+                    }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
               </div>
             </motion.div>
           </AnimatePresence>
 
           <div
-            className="bg-[rgba(60,50,50,0.5)] p-5 py-8 rounded-2xl flex flex-col gap-5
-                            bg-clip-padding backdrop-filter backdrop-blur-[30px] backdrop-saturate-100 backdrop-contrast-125 
-                            w-full shadow-lg absolute top-[40%] md:top-[60%] left-0 right-0 mx-auto"
+            className="w-full xl:max-w-[500px] 2xl:max-w-[600px] mx-auto bg-white/10 border border-white/10 rounded-[24px] p-6 md:p-8
+                            backdrop-blur-[40px] shadow-[0_12px_40px_rgba(0,0,0,0.35)] flex flex-col gap-4 z-50 mb-7"
           >
-            <p className="font-chillax text-white font-extralight text-[20px] md:text-[1.5vw]">
+            <p className="font-chillax text-white font-light text-[16px] md:text-[1.15vw] leading-[24px] md:leading-[1.6vw]">
               we specialize exclusively in creating exceptional user
               interfaces and experiences. We cover the full spectrum of UI/UX
               design to ensure your product is not just beautiful, but also
               functional, accessible, and drives results.
             </p>
-            <div>
+            {/* <div>
               <Button
                 text="Get a Quote"
                 onClick={() => navigate("/get-quote")}
                 variant="filled"
               />
-            </div>
+            </div> */}
           </div>
         </div>
+      </div>
+      <div className="mt-30">
+        <Brandinglogos theme="dark" />
       </div>
     </section>
   );

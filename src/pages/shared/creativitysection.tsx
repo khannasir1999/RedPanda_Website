@@ -18,7 +18,7 @@ const Creativitysection = () => {
   });
 
   return (
-    <section className="pt-5 px-[48px] bg-[#F2F2F2] h-screen w-full flex flex-col overflow-hidden max-h-[840px]" >
+    <section className="pt-5 px-[48px] bg-[#F2F2F2] h-screen w-full flex flex-col overflow-hidden max-h-[800px]" >
       <div ref={creativityheadingRef} >
         <Sectionheading
           className="creativity-heading m-0! mb-5!"

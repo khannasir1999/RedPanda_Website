@@ -11,6 +11,7 @@ interface ScrollSequenceProps {
   itemCount: number;
   onStepChange: (index: number) => void;
   isActive?: boolean;
+  stepScrollPercent?: number;
 }
 
 export const useScrollSequence = ({
@@ -18,6 +19,7 @@ export const useScrollSequence = ({
   itemCount,
   onStepChange,
   isActive = true,
+  stepScrollPercent = 100,
 }: ScrollSequenceProps) => {
   const currentIndexRef = useRef<number>(0);
 
@@ -30,7 +32,7 @@ export const useScrollSequence = ({
       ScrollTrigger.create({
         trigger: element,
         start: "top top",
-        end: `+=${itemCount * 100}%`,
+        end: `+=${itemCount * stepScrollPercent}%`,
         pin: true,
         pinType: "transform", 
         scrub: 0.5,
@@ -51,5 +53,5 @@ export const useScrollSequence = ({
     }, containerRef);
 
     return () => ctx.revert();
-  }, [containerRef, itemCount, onStepChange, isActive]);
+  }, [containerRef, itemCount, onStepChange, isActive, stepScrollPercent]);
 };

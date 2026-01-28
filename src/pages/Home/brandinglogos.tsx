@@ -1,9 +1,15 @@
 import InfiniteSlider from "../../components/animations/infiniteslider";
 import { BRANDING_LOGOS } from "../../constants/brandinglogos";
 
-const Brandinglogos = () => {
+const Brandinglogos = ({ theme = "light" }: { theme?: "light" | "dark" }) => {
   return (
-    <section className="bg-[#F2F2F2] py-8 px-5 overflow-hidden">
+    <section
+      className={`${
+        theme === "light"
+          ? "bg-[#F2F2F2]"
+          : "bg-bg-black-100 [&_img]:brightness-0 [&_img]:invert"
+      } py-8 px-5 overflow-hidden`}
+    >
       <InfiniteSlider
         items={BRANDING_LOGOS}
         speed={150}

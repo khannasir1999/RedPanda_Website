@@ -2,7 +2,7 @@ import { Goggleicon } from "../../icons"
 
 const Goggleratings = () => {
   return (
-    <div className='bg-white p-3 rounded-xl flex gap-2 items-center cursor-pointer border-t-4 border-t-[#3DA755]'>
+    <div className='bg-white p-3 rounded-xl flex gap-2 items-center cursor-pointer border-t-4 border-t-[#3DA755] max-w-[360px] h-[108px]'>
       <div>
         <Goggleicon className="w-[50px] h-[50px] md:w-[3.6vw] md:h-[3.6vw] 2xl:w-[7vh] 2xl:h-[7vh]" />
       </div>
