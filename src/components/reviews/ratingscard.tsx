@@ -20,7 +20,7 @@ const Ratingscard = ({ showgoggleratings = true, isClientReview = true }: Rating
             })}
         </div>
         <p className="font-chillax  text-[38px] md:text-[2vw] 2xl:text-[3.5vh] font-medium my-2 tracking-tighter mt-[30px]">Overall Rating</p>
-        <p className={`font-chillax font-normal  max-w-[80%] text-[20px] tracking-tighter`}>
+        <p className={`font-chillax font-normal  max-w-[80%] ${isClientReview ? "text-[20px] tracking-tighter" : "text-[16px] tracking-tighter"}`}>
           Many CEO’s Prefer Red Panda Networks
         </p>
       </div>

@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import Workflowchip from "../../components/workflows/workflowchip";
-import Workflowchipslines from "../../components/workflows/chipsconnectorlines";
-import Spline from "@splinetool/react-spline";
+// import Workflowchip from "../../components/workflows/workflowchip";
+// import Workflowchipslines from "../../components/workflows/chipsconnectorlines";
+// import Spline from "@splinetool/react-spline";
 import Workflowelements from "../../components/workflows/workflowelements";
 import Workflowtext from "../../components/workflows/workflowtext";
-import type { WorkflowChip } from "../../types/workflowchip";
-import { WORKFLOW_CHIPS } from "../../constants/workflowchips";
+// import type { WorkflowChip } from "../../types/workflowchip";
+// import { WORKFLOW_CHIPS } from "../../constants/workflowchips";
 
 
 
