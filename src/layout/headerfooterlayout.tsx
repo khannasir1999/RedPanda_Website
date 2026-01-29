@@ -106,7 +106,7 @@ const Header = ({ title }: { title?: string }) => {
 
 const Footer = () => {
   return (
-    <footer className="bg-bg-black-100 px-4 md:px-6 lg:px-6 py-12">
+    <footer className="bg-bg-black-100 px-4 md:px-6 lg:px-[48px] py-12">
       <div className="flex justify-between items-center flex-col md:flex-row">
         <div className="w-full md:max-w-[30%] mb-8 md:mb-0">
           <img src={redpandalogo} alt="Loading..." width={300} />

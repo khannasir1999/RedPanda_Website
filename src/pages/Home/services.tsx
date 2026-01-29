@@ -72,13 +72,14 @@ const Services = () => {
         ref={serviceItemsRef}
       >
 
-        <div className="w-full h-full flex flex-col justify-between">
+        <div className="w-full h-full flex flex-col gap-[20.23px] 2xl:mt-[110px]">
           {SERVICES.map(({ label, Icon, id }: ServiceItem) => (
             <Serviceitem
               key={id}
               label={label}
               Icon={Icon}
               isActive={activeSid === id}
+              onClick={() => setActiveSid(id)}
             />
           ))}
         </div>

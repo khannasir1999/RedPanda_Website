@@ -18,7 +18,7 @@ const Creativitysection = () => {
   });
 
   return (
-    <section className="pt-5 px-[48px] bg-[#F2F2F2] h-screen w-full flex flex-col overflow-hidden max-h-[800px]" >
+    <section className="pt-[100px] px-[48px] bg-[#F2F2F2] h-screen w-full flex flex-col overflow-hidden" >
       <div ref={creativityheadingRef} >
         <Sectionheading
           className="creativity-heading m-0! mb-5!"
@@ -30,7 +30,7 @@ const Creativitysection = () => {
         />
       </div>
 
-      <section ref={interactivesectionRef} className="flex-1 w-full max-h-[456px]">
+      <section ref={interactivesectionRef} className="flex-1 w-full h-full pt-7">
         <Interactivesection />
       </section>
     </section>

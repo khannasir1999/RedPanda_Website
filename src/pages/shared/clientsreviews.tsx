@@ -47,7 +47,7 @@ const Clientsreviews = () => {
     });
 
     return (
-        <section className="px-2 sm:px-4 md:h-screen bg-background-white overflow-x-hidden flex flex-col cursor-none pb-[48px]">
+        <section className="pt-[100px] pl-[48px] md:h-screen bg-background-white overflow-x-hidden flex flex-col cursor-none pb-[100px]">
             <div className="shrink-0" ref={reiviewsheadingRef}>
                 <Sectionheading
                     className="reviews-heading"
@@ -85,9 +85,9 @@ const Clientsreviews = () => {
                         }}
 
                     >
-                        <CarouselContent className="h-full ">
+                        <CarouselContent className="h-full w-full">
                             <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
-                                <div className="w-full h-full">
+                                <div className="w-[75%] h-full">
                                     <Ratingscard />
                                 </div>
                             </CarouselItem>

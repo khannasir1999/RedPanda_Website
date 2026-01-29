@@ -22,7 +22,7 @@ const Faqsection = () => {
   });
 
   return (
-    <section className="px-[48px] py-[40px] pt-3 bg-background-white flex flex-col overflow-hidden">
+    <section className="px-[48px] py-[100px] bg-background-white flex flex-col overflow-hidden">
       <div ref={faqsheadingRef} className="shrink-0">
         <Sectionheading
           className="faqs-heading mb-2!"

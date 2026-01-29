@@ -19,13 +19,13 @@ const Journeysection = () => {
 
 
   return (
-    <section className="relative isolate w-full px-[48px] overflow-hidden bg-black py-12 md:py-16">
+    <section className="relative isolate w-full px-[48px] overflow-hidden bg-black py-12 md:py-16 h-screen">
       <GetQuoteBgImages />
       <div className="absolute inset-0 bg-linear-to-b from-bg-black-100 to-[rgba(0,0,0,0.35)] z-1" />
 
-      <div className="relative z-2 w-full flex gap-20 flex-col md:flex-row">
+      <div className="relative z-2 w-full flex gap-20 flex-col md:flex-row mt-10">
         <div className="shrink-0" ref={journeyLeftSectionRef}>
-          <div className="journey-left-section max-w-[520px]">
+          <div className="journey-left-section">
             <Sectionheading
               heading={
                 <>

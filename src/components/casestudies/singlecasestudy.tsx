@@ -10,7 +10,7 @@ const Singlecasestudy = ({ stdy }: { stdy: string }) => {
 
   return (
     <div
-      className={'h-[408px] md:h-[48.3vw] rounded-[28px] relative overflow-hidden bg-center bg-cover case-study'}
+      className={"aspect-square w-full rounded-[28px] relative overflow-hidden bg-center bg-cover case-study"}
       style={{
         backgroundImage: `url(${stdy})`,
       }}

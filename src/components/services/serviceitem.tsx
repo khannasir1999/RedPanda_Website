@@ -7,14 +7,20 @@ const Serviceitem = ({
   label,
   Icon,
   isActive,
+  onClick,
 }: Omit<ServiceItem, "id" | "spline"> & {
   isActive: boolean;
+  onClick?: () => void;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="flex justify-between items-center mb-8 md:mb-0 cursor-pointer group service-item"
+      className={cn(
+        "flex justify-between items-center mb-8 md:mb-0 cursor-pointer group service-item px-4 py-3 rounded-[16px] transition-colors",
+        isActive ? "bg-[#2A2A2A]" : ""
+      )}
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -22,7 +28,7 @@ const Serviceitem = ({
         className={cn(
           `font-chillax tracking-[-2px] text-[35px] md:text-[2.56vw] `,
           "text-[#6B7280] transition-colors duration-500 group-hover:text-[#EA2227]",
-          isActive ? "text-[#EA2227]" : ""
+          isActive ? "text-[#FAFAFA]" : ""
         )}
       >
         {label}

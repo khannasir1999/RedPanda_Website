@@ -21,7 +21,7 @@ const Button = ({ text, variant, showicon = true, className,btnclassname, ...pro
             onMouseLeave={() => setIsHovered(false)}
             className={btnclassname}
         >
-            <p className={cn(`${variant === "filled" ? "bg-red-primary-500 hover:bg-red-700 text-white" : "border-red-primary-400 border-[1px] text-red-primary-400 hover:bg-red-100"} py-3 px-5 rounded-lg font-chillax font-[500] cursor-pointer text-[22px] md:text-[1.61vw] tracking-tighter flex items-center gap-3 justify-center`, className)}>
+            <p className={cn(`${variant === "filled" ? "bg-red-primary-500 hover:bg-red-700 text-white" : "border-red-primary-400 border-[1px] text-red-primary-400 hover:bg-red-100"} py-3 px-5 rounded-lg font-chillax font-[500] cursor-pointer text-[16px] tracking-tighter flex items-center gap-3 justify-center`, className)}>
                 {text}
                 {showicon && (
                     <motion.div
