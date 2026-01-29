@@ -8,12 +8,12 @@ import RightAnimator from "../../components/animations/rightanimator";
 import pandaimage from "../../../public/assets/images/panda.png";
 import cloudyimage1 from "../../../public/assets/images/hero/cloudy1.png";
 import cloudyimage2 from "../../../public/assets/images/hero/cloudy2.png";
-import image5 from "../../../public/assets/images/hero/image5.png";
-import image2 from "../../../public/assets/images/hero/image2.png";
-import image1 from "../../../public/assets/images/hero/image1.png";
-import image3 from "../../../public/assets/images/hero/image3.png";
-import image4 from "../../../public/assets/images/hero/image4.png";
-import image6 from "../../../public/assets/images/hero/image6.png";
+import image5 from "../../assets/images/hero/image5.png";
+import image2 from "../../assets/images/hero/image2.png";
+import image1 from "/assets/images/hero/image1.png";
+import image3 from "../../assets/images/hero/image3.png";
+import image4 from "../../assets/images/hero/image4.png";
+import image6 from "../../assets/images/hero/image6.png";
 
 const heroBackgroundImages = [
   {
