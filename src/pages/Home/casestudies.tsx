@@ -22,7 +22,7 @@ const Casestudies = () => {
   });
 
   return (
-    <section className="py-15 px-4 min-h-screen">
+    <section className="py-15 sm:px-4 min-h-screen">
       <div ref={casestudyheadingRef}>
         <Sectionheading
           className="casestudy-heading"

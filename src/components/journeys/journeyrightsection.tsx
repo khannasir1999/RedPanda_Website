@@ -1,4 +1,4 @@
-import Sectionheading from "../shared/Sectionheading";
+// import Sectionheading from "../shared/Sectionheading";
 import { useState } from "react";
 import { BUDGET_BADGES, SERVICE_BADGES } from "@/constants/journeybadges";
 import { useActive } from "@/hooks/useActive";
@@ -47,7 +47,7 @@ const Journeyrightsection = ({ darkmode = false }: { darkmode?: boolean }) => {
 
   return (
     <div className="journey-right-section">
-      {!isQuotePage && <Sectionheading
+      {/* {!isQuotePage && <Sectionheading
         heading={
           <>
             Start your <br className="md:inline-block hidden" />
@@ -55,7 +55,7 @@ const Journeyrightsection = ({ darkmode = false }: { darkmode?: boolean }) => {
           </>
         }
         className="inline-block md:hidden"
-      />}
+      />} */}
       <Badgesheading darkmode={darkmode} text="Service*" />
       <div className="my-7 2xl:my-10 flex gap-x-3 gap-y-4 flex-wrap">
         {SERVICE_BADGES.map((badge, index) => {

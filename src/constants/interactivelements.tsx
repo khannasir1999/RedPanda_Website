@@ -2,19 +2,19 @@ import { InteractiveAnnounceButtonIcon, InteractiveBlackButtonIcon, InteractiveB
 
 
 export const INTERACTIVE_ELEMENTS: React.ReactElement[] = [
-    <InteractivedesignIcon />,
-    <InteractivePlayIcon width={150} height={150} />,
-    <InteractiveSwitchIcon />,
-    <InteractiveAnnounceButtonIcon />,
-    <InteractiveBlackButtonIcon />,
-    <InteractiveWhiteButtonIcon className="hidden md:block" />,
-    <InteractiveGreenheartIcon className="hidden md:block" />,
-    <InteractiveRedheartIcon className="hidden md:block" />,
-    <InteractiveRightArrowIcon className="hidden md:block" />,
-    <InteractiveSaasDesignIcon className="hidden md:block" />,
-    <InteractiveQuoteIcon width={150} height={150} className="hidden md:block" />,
-    <InteractiveBrandButtonIcon className="hidden md:block" />,
-    <InteractiveChipsButtonIcon className="hidden md:block" />,
-    <InteractiveDevelopmentIcon className="hidden md:block" />,
-    <InteractiveProductDesignIcon />
+    <InteractivedesignIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" width={50} height={50} />,
+    <InteractivePlayIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveSwitchIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveAnnounceButtonIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveBlackButtonIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveWhiteButtonIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveGreenheartIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveRedheartIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveRightArrowIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveSaasDesignIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveQuoteIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveBrandButtonIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveChipsButtonIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveDevelopmentIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />,
+    <InteractiveProductDesignIcon className="w-[50px] h-[50px] sm:w-auto sm:h-auto" />
 ];

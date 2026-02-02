@@ -59,7 +59,7 @@ const Services = () => {
   });
 
   return (
-    <section className="w-full bg-bg-black-100 py-0 px-[48px] video-services-overlay overflow-x-hidden relative"
+    <section className="w-full bg-bg-black-100 py-0 px-[10px] sm:px-[48px] video-services-overlay overflow-x-hidden relative"
       style={headerHeightStyle}
     >
       {/* <Servicesintrotext /> */}
@@ -141,7 +141,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <div className="mt-30">
+      <div className="sm:mt-30">
         <Brandinglogos theme="dark" />
       </div>
     </section>
