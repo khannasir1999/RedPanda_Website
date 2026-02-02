@@ -35,7 +35,7 @@ const Home = () => {
         <section className="home-overlay-section px-[48px]">
           <Casestudies />
         </section>
-        <section className="home-overlay-section">
+        <section className="sm:home-overlay-section">
           <Designflowsection />
         </section>
         <Creativitysection />
