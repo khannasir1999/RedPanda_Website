@@ -123,13 +123,13 @@ const Herosection = () => {
 
       <div className="flex  items-center justify-between z-10 pointer-events-none w-full mt-40">
         <LeftAnimater
-          className="relative w-full h-full flex flex-col z-10 pointer-events-none">
+          className="relative w-full sm:w-2/3 lg:w-1/2 h-full flex flex-col z-10 pointer-events-none">
           <Frontheading />
           <div className="mt-5 flex gap-3 pointer-events-auto">
             <Button variant="filled" text="Get a Quote" />
           </div>
         </LeftAnimater>
-        <RightAnimator className="w-full h-full flex flex-col items-end p-12 pt-0">
+        <RightAnimator className="hidden sm:flex w-full h-full flex-col items-end p-12 pt-0">
           <div className="flex items-center gap-1 text-left">
             <ArrowUpRight className="text-red-primary-400 w-[40px] h-[40px] sm:w-[45px] sm:h-[45px] md:w-[50px] md:h-[50px] shrink-0" />
             <h1 className="uppercase text-[#FAFAFA] font-chillax font-medium text-[28px] sm:text-[36px] md:text-[42px] lg:text-5xl leading-[34px] sm:leading-[42px] md:leading-[48px] lg:leading-[49.87px] tracking-tighter">
@@ -197,7 +197,7 @@ const Herosection = () => {
           ref={pandaRef}
           src={pandaimage} 
           alt="Hero Section Image" 
-          className="w-auto h-[70vh]" 
+          className="w-auto h-[50vh] xl:h-[70vh]" 
         />
       </div>
     </div>
