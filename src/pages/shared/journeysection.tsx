@@ -19,7 +19,7 @@ const Journeysection = () => {
 
 
   return (
-    <section className="relative isolate w-full px-[48px] overflow-hidden bg-black py-12 md:py-16 h-screen">
+    <section className="relative isolate w-full px-[48px] overflow-hidden bg-black py-12 md:py-16 min-h-screen">
       <GetQuoteBgImages />
       <div className="absolute inset-0 bg-linear-to-b from-bg-black-100 to-[rgba(0,0,0,0.35)] z-1" />
 

@@ -47,7 +47,7 @@ const Clientsreviews = () => {
     });
 
     return (
-        <section className="pt-[100px] pl-[48px] md:h-screen bg-background-white overflow-x-hidden flex flex-col cursor-none pb-[100px]">
+        <section className="pt-12 sm:pt-16 md:pt-20 lg:pt-[100px] pl-4 sm:pl-6 md:pl-8 lg:pl-[48px] sm:min-h-screen bg-background-white overflow-x-hidden flex flex-col cursor-none pb-12 sm:pb-16 md:pb-20 lg:pb-[100px]">
             <div className="shrink-0" ref={reiviewsheadingRef}>
                 <Sectionheading
                     className="reviews-heading"
@@ -71,45 +71,46 @@ const Clientsreviews = () => {
             >
 
                 {showBlobCursor && canScroll && (
-                    <div className="absolute inset-0">
+                    <div className="absolute inset-0 hidden sm:block">
                         <BlobCursor onClick={handleCursorClick} rotatingText={cursorText} Arrow={CursorArrowIcon} showarrows zIndex={50} />
                     </div>
                 )}
 
                 <div className="reviews-cards h-full ">
                     <Carousel
-                        className="h-full "
+                        className="h-full"
                         setApi={setApi}
                         opts={{
                             align: "start",
                         }}
-
                     >
-                        <CarouselContent className="h-full w-full">
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
-                                <div className="w-[75%] h-full">
+                        <CarouselContent className="h-full w-full gap-2 md:gap-6">
+                            <CarouselItem className="h-full sm:basis-[55%] md:basis-[45%] lg:basis-[30%] flex">
+                                <div className="min-w-0 h-full">
                                     <Ratingscard />
                                 </div>
                             </CarouselItem>
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
-                                    <Recommendationcard />
-                            </CarouselItem>
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
+                            <CarouselItem className="h-full basis-[78%] sm:basis-[60%] md:basis-[50%] lg:basis-[40%] flex">
                                 <div className="w-full h-full">
                                     <Recommendationcard />
                                 </div>
                             </CarouselItem>
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
+                            <CarouselItem className="h-full basis-[78%] sm:basis-[60%] md:basis-[50%] lg:basis-[40%] flex">
                                 <div className="w-full h-full">
                                     <Recommendationcard />
                                 </div>
                             </CarouselItem>
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
+                            <CarouselItem className="h-full basis-[78%] sm:basis-[60%] md:basis-[50%] lg:basis-[40%] flex">
                                 <div className="w-full h-full">
                                     <Recommendationcard />
                                 </div>
                             </CarouselItem>
-                            <CarouselItem className="h-full md:basis-1/2 lg:basis-2/5 flex">
+                            <CarouselItem className="h-full basis-[78%] sm:basis-[60%] md:basis-[50%] lg:basis-[40%] flex">
+                                <div className="w-full h-full">
+                                    <Recommendationcard />
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem className="h-full basis-[78%] sm:basis-[60%] md:basis-[50%] lg:basis-[40%] flex">
                                 <div className="w-full h-full">
                                     <Recommendationcard />
                                 </div>

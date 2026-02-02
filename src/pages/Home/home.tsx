@@ -28,7 +28,7 @@ const Home = () => {
         {/* <section className="home-overlay-section">
           <Videosection />
         </section> */}
-        <section>
+        {/* <section>
           <Services />
         </section>
 
@@ -38,7 +38,7 @@ const Home = () => {
         <section className="home-overlay-section">
           <Designflowsection />
         </section>
-        <Creativitysection />
+        <Creativitysection /> */}
         <Clientsreviews />
         <Journeysection />
         <Faqsection />
