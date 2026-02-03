@@ -15,7 +15,7 @@ const Brandinglogos = ({ theme = "light" }: { theme?: "light" | "dark" }) => {
         speed={150}
         direction="left"
         gap={120}
-        itemsHeight={30}
+        itemsHeight={50}
         pauseOnHover={false}
         scaleOnHover={false}
         fadeOut={false}

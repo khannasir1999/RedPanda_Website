@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../public/assets/images/logo.png"
+import logo from "../../public/assets/images/logo2.png"
 import { DropdownMenuIcon, MenuIcon } from "../icons";
 import Button from "../ui/button";
 import { Dropdown } from "../ui/dropdown";

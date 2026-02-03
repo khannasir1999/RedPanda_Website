@@ -27,12 +27,12 @@ const ServiceContent = () => {
         <ScrollReveal
           baseOpacity={0.1}
           enableBlur
-          baseRotation={0}
-          blurStrength={4}
+          baseRotation={3}
+          blurStrength={5}
           containerClassName="mt-10 sm:mt-12 lg:mt-75 md:self-end lg:max-w-[460px]"
           textClassName="font-chillax text-[#FAFAFA] text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[1vw] leading-[20px] sm:leading-[22px] lg:leading-[24px] xl:leading-[1.4vw] font-light"
         >
-          UI/UX Design Isn’t Just About Looking Good. It’s All About Making
+          UI/UX Design Isn't Just About Looking Good. It’s All About Making
           Things Easy To Use, Cutting Down On Mistakes, And Streamlining How
           Stuff Works. We Focus On Boosting User Experience And Simplifying
           Processes To Create Solutions That Really Make A Difference.

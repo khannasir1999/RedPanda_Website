@@ -1,5 +1,5 @@
 import HeaderFooterLayout from "../../layout/headerfooterlayout";
-import Brandinglogos from "./brandinglogos";
+//import Brandinglogos from "./brandinglogos";
 import Casestudies from "./casestudies";
 import Clientsreviews from "../shared/clientsreviews";
 import Creativitysection from "../shared/creativitysection";
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <HeaderFooterLayout>
       <Herosection />
-      <Brandinglogos theme="light" />
+      {/* <Brandinglogos theme="light" /> */}
       <ServiceContent />
 
       <div ref={containerRef}>
