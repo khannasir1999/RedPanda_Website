@@ -250,10 +250,10 @@ const Workflowelements = () => {
                 delay={0.5}
                 className={cn(
                     "bg-red-primary-400 hover:bg-red-primary-500 border-transparent active:border-red-primary-400 active:bg-white rounded-[10px] md:rounded-[20px]",
-                    "w-[13vw] h-[7vw]",
-                    "right-[19vw] top-[65%]"
+                    "w-[16vw] h-[8vw]",
+                    "right-[17vw] top-[63%]"
                 )}
-                textclassName="text-white group-active:text-red-primary-400 text-[1.8vw] leading-[1.8vw]"
+                textclassName="text-white group-active:text-yellow-primary-500 text-[2.5vw] leading-[2.5vw]"
             />
         </div>
     );
