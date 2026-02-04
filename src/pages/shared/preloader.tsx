@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 interface PreloaderProps {
@@ -9,6 +9,16 @@ interface PreloaderProps {
 const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
   const pandaRef = useRef<HTMLImageElement>(null);
   const starRef = useRef<HTMLImageElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (!pandaRef.current || !starRef.current) return;
@@ -52,7 +62,7 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
     <div 
       className="fixed inset-0 z-50 h-screen w-full overflow-hidden"
       style={{
-        backgroundImage: "url(/assets/images/loader_background.png)",
+        backgroundImage: `url(/assets/images/${isMobile ? "mobile_loader_bg.png" : "loader_background.png"})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -61,7 +71,7 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
         ref={pandaRef}
         src="/assets/images/loader_panda.png"
         alt="Loading..."
-        className="absolute top-1/2 -translate-y-1/2 h-[200px] md:h-[800px] object-contain"
+        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-[175px]" : "h-[200px]"} md:h-[335px] lg:h-[400px] xl:h-[600px] 2xl:h-[800px] object-contain`}
       />
       
       {/* Star that pops up between the hands */}
@@ -69,8 +79,8 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
         ref={starRef}
         src="/assets/images/Star.svg.png"
         alt="Star"
-        className="absolute top-1/2 -translate-y-1/2 h-[80px] md:h-[150px] object-contain pointer-events-none"
-        style={{ opacity: 0, right: "55%" }}
+        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-screen" : "h-[80px]"} md:h-[150px] object-contain pointer-events-none`}
+        style={{ opacity: 0, right: isMobile ? "0%" : "55%" }}
       />
     </div>
   );
