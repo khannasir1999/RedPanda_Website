@@ -77,10 +77,10 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
       {/* Star that pops up between the hands */}
       <img
         ref={starRef}
-        src={`/assets/images/${isMobile ? "R_panda.png" : "Star.svg.png"}`}
+        src={"/assets/images/Star.svg.png"}
         alt="Star"
-        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-screen" : "h-[80px]"} md:h-[150px] object-contain pointer-events-none`}
-        style={{ opacity: 0, right: isMobile ? "0%" : "55%" }}
+        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-[50px]" : "h-[80px]"} md:h-[150px] object-contain pointer-events-none`}
+        style={{ opacity: 0, right: isMobile ? "40%" : "55%" }}
       />
     </div>
   );
