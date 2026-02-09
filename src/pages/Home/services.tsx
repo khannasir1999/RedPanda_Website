@@ -18,7 +18,7 @@ import Brandinglogos from "./brandinglogos";
 const Services = () => {
   const [activeSid, setActiveSid] = useState<string>(SERVICES[0].id);
   const navigate = useNavigate();
-  const { headerHeight, headerHeightStyle } = useHeaderHeight();
+  const { headerHeight } = useHeaderHeight();
 
   const activeImages = useMemo(() => {
     const imageMap: Record<string, [string, string]> = {
