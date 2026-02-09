@@ -10,6 +10,7 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
   const pandaRef = useRef<HTMLImageElement>(null);
   const starRef = useRef<HTMLImageElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const animationKey = useRef(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,40 +22,71 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
   }, []);
 
   useEffect(() => {
-    if (!pandaRef.current || !starRef.current) return;
+    // Increment key to force reset on each route change
+    animationKey.current += 1;
+    
+    // Small delay to ensure refs are attached
+    const timer = setTimeout(() => {
+      if (!pandaRef.current) return;
 
-    // Animate panda from right to left
-    const tl = gsap.timeline({
-      onComplete: onFinish,
-    });
+      // Kill any existing animations first
+      gsap.killTweensOf([pandaRef.current, starRef.current]);
 
-    // Move panda
-    tl.fromTo(
-      pandaRef.current,
-      { x: "100vw" },
-      { 
-        x: "85%", 
-        duration: duration,
-        ease: "power2.out"
+      // Reset initial positions
+      gsap.set(pandaRef.current, { x: "100vw" });
+      if (starRef.current) {
+        // Preserve the right position from inline styles (check current mobile state)
+        const currentIsMobile = window.innerWidth < 768;
+        const rightPosition = currentIsMobile ? "40%" : "55%";
+        gsap.set(starRef.current, { 
+          scale: 0, 
+          opacity: 0, 
+          rotation: -180,
+          right: rightPosition
+        });
       }
-    );
 
-    // Pop up star when panda reaches the hand
-    tl.fromTo(
-      starRef.current,
-      { scale: 0, opacity: 0, rotation: -180 },
-      { 
-        scale: 1, 
-        opacity: 1, 
-        rotation: 0,
-        duration: 0.5,
-        ease: "back.out(1.7)"
-      },
-      "-=0.3" // Start slightly before panda stops
-    );
+      // Animate panda from right to left
+      const tl = gsap.timeline({
+        onComplete: onFinish,
+      });
+
+      // Move panda
+      tl.fromTo(
+        pandaRef.current,
+        { x: "100vw" },
+        { 
+          x: "85%", 
+          duration: duration,
+          ease: "power2.out"
+        }
+      );
+
+      // Pop up star when panda reaches the hand (if present)
+      if (starRef.current) {
+        tl.fromTo(
+          starRef.current,
+          { scale: 0, opacity: 0, rotation: -180 },
+          { 
+            scale: 1, 
+            opacity: 1, 
+            rotation: 0,
+            duration: 0.5,
+            ease: "back.out(1.7)"
+          },
+          "-=0.3" // Start slightly before panda stops
+        );
+      }
+    }, 10);
+
+    const currentPanda = pandaRef.current;
+    const currentStar = starRef.current;
 
     return () => {
-      tl.kill();
+      clearTimeout(timer);
+      if (currentPanda) {
+        gsap.killTweensOf([currentPanda, currentStar]);
+      }
     };
   }, [onFinish, duration]);
 
@@ -68,6 +100,7 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
       }}
     >
       <img
+        key={`panda-${animationKey.current}`}
         ref={pandaRef}
         src="/assets/images/loader_panda.png"
         alt="Loading..."
@@ -76,6 +109,7 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
       
       {/* Star that pops up between the hands */}
       <img
+        key={`star-${animationKey.current}`}
         ref={starRef}
         src={"/assets/images/Star.svg.png"}
         alt="Star"

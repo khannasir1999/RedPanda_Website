@@ -2,8 +2,8 @@ import { useRef } from "react";
 
 import leftwireframe from "../../../public/assets/images/conceptodesign/leftwireframe.jpg";
 import rightwireframe from "../../../public/assets/images/conceptodesign/rightwireframe.png";
-import leftdesign from "../../../public/assets/images/conceptodesign/leftdesign.png";
-import rightdesign from "../../../public/assets/images/conceptodesign/rightdesign.png";
+import leftdesign from "../../../public/assets/images/conceptodesign/leftdesign2.png";
+import rightdesign from "../../../public/assets/images/conceptodesign/rightdesign2.png";
 import mobiledesign from "../../../public/assets/images/conceptodesign/mobiledesign.png";
 import mobilewireframe from "../../../public/assets/images/conceptodesign/mobilewireframe.jpg";
 import Designprocessmobilesection from "../../components/conceptodesign/designprocessmobilesection";
@@ -63,7 +63,7 @@ const Conceptodesign = () => {
 
 
 
-          <div ref={whiteOverlayRef} className="absolute inset-0 w-full h-screen bg-white opacity-0 pointer-events-none z-50"></div>
+          {/* <div ref={whiteOverlayRef} className="absolute inset-0 w-full h-screen bg-white opacity-0 pointer-events-none z-50"></div> */}
         </div>
       </div>
 

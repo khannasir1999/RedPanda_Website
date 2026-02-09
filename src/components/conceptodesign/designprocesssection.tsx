@@ -9,7 +9,7 @@ const DesignProcessSection = ({ heading, leftimage, rightimage, className }: Des
         </Middletext>
         <div className="concepttodesign-images absolute inset-0 flex justify-between items-center -z-10">
             <img src={leftimage} className="concepttodesign-left-image h-[80%]" alt="Loading..." />
-            <img src={rightimage} className="concepttodesign-right-image h-[92%]" alt="Loading..." />
+            <img src={rightimage} className="concepttodesign-right-image h-[80%]" alt="Loading..." />
         </div>
     </div>
 }

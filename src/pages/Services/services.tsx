@@ -6,7 +6,7 @@ import Journeysection from "../shared/journeysection";
 import Conceptodesign from "./conceptodesign";
 import Herosection from "./herosection";
 import Servicesdetail from "./servicesdetail";
-import Industries from "./industries";
+// import Industries from "./industries";
 import { useVerticalWipeAnimation } from "@/hooks/useVerticalWipeAnimation";
 import { useScrollOverlaying } from "@/hooks/useScrollOverlaying";
 
@@ -38,9 +38,9 @@ const Services = () => {
           </div>
         </div>
       </main>
-      <div className="relative z-10 lg:-mt-[150vh]">
+      {/* <div className="relative z-10 lg:-mt-[150vh]">
         <Industries />
-      </div>
+      </div> */}
       <Servicesdetail />
       <Clientsreviews />
       <Faqsection />

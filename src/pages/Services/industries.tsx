@@ -27,7 +27,7 @@ const Industries = () => {
     });
 
     return (
-        <div ref={sectionRef} className="bg-background-white w-full px-4 lg:px-5 py-12">
+        <div ref={sectionRef} className="bg-[#FFFFFF] w-full px-4 lg:px-5 py-12">
             <IndustryIntroText />
             <div className="flex gap-5 flex-col md:flex-row">
                 <div className="flex-1 flex-col md:flex-row flex gap-5">

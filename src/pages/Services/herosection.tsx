@@ -3,10 +3,12 @@ import Button from "../../ui/button";
 import Inlineicon from "../../components/services/inlineicon";
 import Backgroundredglow from "../../components/services/backgroundredglow";
 import TopAnimator from "../../components/animations/topanimator";
-import Spline from "@splinetool/react-spline";
 import { cn } from "../../utils/cn";
-import { useState } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import BottomAnimator from "@/components/animations/bottomanimator";
+
+// Lazy load Spline component to reduce initial bundle size
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const InteractiveHeading = ({
     children,
@@ -87,15 +89,31 @@ const Introtext = () => {
 };
 
 const Herosection = () => {
+    const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
+
+    // Load Spline after component mounts to improve initial page load
+    useEffect(() => {
+        // Small delay to ensure other critical content loads first
+        const timer = setTimeout(() => {
+            setShouldLoadSpline(true);
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section className="relative w-full h-screen bg-bg-black-100 px-4 pt-26 overflow-hidden isolate">
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0 translate-y-80 overflow-visible">
-                <BottomAnimator className="md:scale-[1] scale-[0.5]">
-                    <Spline
-                        scene="https://prod.spline.design/hAgUkY3HybzhUBy9/scene.splinecode"
-                        style={{ width: "100%", height: "100%" }}
-                    />
-                </BottomAnimator>
+                {shouldLoadSpline && (
+                    <BottomAnimator className="md:scale-[1] scale-[0.5]">
+                        <Suspense fallback={<div className="w-full h-full" />}>
+                            <Spline
+                                scene="https://prod.spline.design/hAgUkY3HybzhUBy9/scene.splinecode"
+                                style={{ width: "100%", height: "100%" }}
+                            />
+                        </Suspense>
+                    </BottomAnimator>
+                )}
             </div>
             <Backgroundredglow className="-top-15 -right-40 " />
             <Backgroundredglow className="-bottom-15 -left-40" />

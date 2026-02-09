@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import Serviceitem from "../../components/services/serviceitem";
-// import Button from "../../ui/button";
+import Button from "../../ui/button";
 import type { ServiceItem } from "../../types/serviceitem";
 import { SERVICES } from "../../constants/services";
 import { useScrollFadeIn } from "../../hooks/useScrollFadeIn";
@@ -17,7 +17,7 @@ import Brandinglogos from "./brandinglogos";
 
 const Services = () => {
   const [activeSid, setActiveSid] = useState<string>(SERVICES[0].id);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { headerHeight, headerHeightStyle } = useHeaderHeight();
 
   const activeImages = useMemo(() => {
@@ -60,7 +60,7 @@ const Services = () => {
 
   return (
     <section className="w-full bg-bg-black-100 py-0 px-[10px] sm:px-[48px] video-services-overlay overflow-x-hidden relative"
-      style={headerHeightStyle}
+      // style={headerHeightStyle}
     >
       {/* <Servicesintrotext /> */}
 
@@ -72,7 +72,7 @@ const Services = () => {
         ref={serviceItemsRef}
       >
 
-        <div className="w-full h-full flex flex-col gap-[20.23px] 2xl:mt-[110px]">
+        <div className="w-full h-full flex flex-col gap-[20.23px] 2xl:mt-[30px]">
           {SERVICES.map(({ label, Icon, id }: ServiceItem) => (
             <Serviceitem
               key={id}
@@ -131,13 +131,13 @@ const Services = () => {
               design to ensure your product is not just beautiful, but also
               functional, accessible, and drives results.
             </p>
-            {/* <div>
+            <div className="mt-8">
               <Button
                 text="Get a Quote"
                 onClick={() => navigate("/get-quote")}
                 variant="filled"
               />
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

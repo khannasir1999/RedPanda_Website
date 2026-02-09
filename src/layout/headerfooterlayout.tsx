@@ -39,10 +39,36 @@ const Header = ({ title }: { title?: string }) => {
   const isQuotePage = location.pathname === "/get-quote";
 
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+  const [isHeaderVisible, setIsHeaderVisible] = React.useState(true);
+  const lastScrollY = React.useRef(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Show header when scrolling up, hide when scrolling down
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsHeaderVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        // Scrolling up
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header>
-      <TopAnimator className="p-4 flex justify-between items-center fixed w-full z-[99] header">
+      <TopAnimator 
+        className={`p-4 flex justify-between items-center fixed w-full z-[99] header transition-transform duration-300 ease-in-out ${
+          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <>
           <Dropdown>
             <Dropdown.Trigger asChild>
