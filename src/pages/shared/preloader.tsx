@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 interface PreloaderProps {
@@ -7,11 +7,17 @@ interface PreloaderProps {
 }
 
 const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pandaWrapperRef = useRef<HTMLDivElement>(null);
   const pandaRef = useRef<HTMLImageElement>(null);
   const starRef = useRef<HTMLImageElement>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const animationKey = useRef(0);
 
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.innerWidth < 768
+  );
+  const [assetsReady, setAssetsReady] = useState(false);
+
+  /* -------------------- Resize -------------------- */
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -21,101 +27,144 @@ const Preloader = ({ onFinish, duration = 3 }: PreloaderProps) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  /* -------------------- Asset Load -------------------- */
   useEffect(() => {
-    // Increment key to force reset on each route change
-    animationKey.current += 1;
-    
-    // Small delay to ensure refs are attached
-    const timer = setTimeout(() => {
-      if (!pandaRef.current) return;
+    const panda = pandaRef.current;
+    const star = starRef.current;
 
-      // Kill any existing animations first
-      gsap.killTweensOf([pandaRef.current, starRef.current]);
+    if (!panda || !star) return;
 
-      // Reset initial positions
-      gsap.set(pandaRef.current, { x: "100vw" });
-      if (starRef.current) {
-        // Preserve the right position from inline styles (check current mobile state)
-        const currentIsMobile = window.innerWidth < 768;
-        const rightPosition = currentIsMobile ? "40%" : "55%";
-        gsap.set(starRef.current, { 
-          scale: 0, 
-          opacity: 0, 
+    let loaded = 0;
+    const onLoad = () => {
+      loaded += 1;
+      if (loaded === 2) setAssetsReady(true);
+    };
+
+    panda.addEventListener("load", onLoad);
+    star.addEventListener("load", onLoad);
+
+    // Cached images fallback
+    if (panda.complete) onLoad();
+    if (star.complete) onLoad();
+
+    return () => {
+      panda.removeEventListener("load", onLoad);
+      star.removeEventListener("load", onLoad);
+    };
+  }, []);
+
+  /* -------------------- Calculate Stop Position -------------------- */
+  const getPandaStopX = () => {
+    const panda = pandaRef.current;
+    const wrapper = pandaWrapperRef.current;
+
+    if (!panda || !wrapper) return 0;
+
+    const viewportWidth = window.innerWidth;
+    const pandaWidth = panda.getBoundingClientRect().width;
+
+    // Where the HANDS should land on screen
+    const handAnchor = isMobile ? 0.62 : 0.58;
+
+    // Where the hands are inside the panda image
+    const pandaHandOffset = 0.50;
+
+    return viewportWidth * handAnchor - pandaWidth * pandaHandOffset;
+  };
+
+  /* -------------------- GSAP Animation -------------------- */
+  useLayoutEffect(() => {
+    if (!assetsReady) return;
+    if (!containerRef.current || !pandaWrapperRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const pandaWrapper = pandaWrapperRef.current!;
+      const star = starRef.current;
+
+      // Initial states
+      gsap.set(pandaWrapper, { x: "100vw" });
+
+      if (star) {
+        gsap.set(star, {
+          scale: 0,
+          opacity: 0,
           rotation: -180,
-          right: rightPosition
         });
       }
 
-      // Animate panda from right to left
       const tl = gsap.timeline({
         onComplete: onFinish,
       });
 
-      // Move panda
-      tl.fromTo(
-        pandaRef.current,
-        { x: "100vw" },
-        { 
-          x: "85%", 
-          duration: duration,
-          ease: "power2.out"
-        }
-      );
+      // Panda walk-in (precisely aligned)
+      tl.to(pandaWrapper, {
+        x: getPandaStopX(),
+        duration,
+        ease: "power2.out",
+      });
 
-      // Pop up star when panda reaches the hand (if present)
-      if (starRef.current) {
-        tl.fromTo(
-          starRef.current,
-          { scale: 0, opacity: 0, rotation: -180 },
-          { 
-            scale: 1, 
-            opacity: 1, 
+      // Star pop between hands
+      if (star) {
+        tl.to(
+          star,
+          {
+            scale: 1,
+            opacity: 1,
             rotation: 0,
             duration: 0.5,
-            ease: "back.out(1.7)"
+            ease: "back.out(1.7)",
           },
-          "-=0.3" // Start slightly before panda stops
+          "-=0.3"
         );
       }
-    }, 10);
+    }, containerRef);
 
-    const currentPanda = pandaRef.current;
-    const currentStar = starRef.current;
+    return () => ctx.revert();
+  }, [assetsReady, duration, onFinish, isMobile]);
 
-    return () => {
-      clearTimeout(timer);
-      if (currentPanda) {
-        gsap.killTweensOf([currentPanda, currentStar]);
-      }
-    };
-  }, [onFinish, duration]);
-
+  /* -------------------- Render -------------------- */
   return (
-    <div 
+    <div
+      ref={containerRef}
       className="fixed inset-0 z-50 h-screen w-full overflow-hidden"
       style={{
-        backgroundImage: `url(/assets/images/${isMobile ? "mobile_loader_bg.png" : "loader_background.png"})`,
+        backgroundImage: `url(/assets/images/${
+          isMobile ? "mobile_loader_bg.png" : "loader_background.png"
+        })`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <img
-        key={`panda-${animationKey.current}`}
-        ref={pandaRef}
-        src="/assets/images/loader_panda.png"
-        alt="Loading..."
-        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-[175px]" : "h-[200px]"} md:h-[335px] lg:h-[400px] xl:h-[600px] 2xl:h-[800px] object-contain`}
-      />
-      
-      {/* Star that pops up between the hands */}
-      <img
-        key={`star-${animationKey.current}`}
-        ref={starRef}
-        src={"/assets/images/Star.svg.png"}
-        alt="Star"
-        className={`absolute top-1/2 -translate-y-1/2 ${isMobile ? "h-[50px]" : "h-[80px]"} md:h-[150px] object-contain pointer-events-none`}
-        style={{ opacity: 0, right: isMobile ? "40%" : "55%" }}
-      />
+      <div
+        ref={pandaWrapperRef}
+        className="absolute top-1/2 -translate-y-1/2"
+      >
+        {/* Panda */}
+        <img
+          ref={pandaRef}
+          src="/assets/images/loader_panda.png"
+          alt="Loading..."
+          className={`block ${
+            isMobile ? "h-[175px]" : "h-[200px]"
+          } md:h-[335px] lg:h-[400px] xl:h-[600px] 2xl:h-[800px] object-contain`}
+        />
+
+        {/* Star locked between hands */}
+        <img
+          ref={starRef}
+          src="/assets/images/Star.svg.png"
+          alt="Star"
+          className={`absolute pointer-events-none ${
+            isMobile ? "h-[40px]" : "h-[60px]"
+          } md:h-[120px] object-contain`}
+          style={{
+            top: "49%",      // fine-tune once if needed
+            left: "15%",     // fine-tune once if needed
+            transform: "translate(-50%, -50%)",
+            opacity: 0,
+          }}
+        />
+      </div>
     </div>
   );
 };
