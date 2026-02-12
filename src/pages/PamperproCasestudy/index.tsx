@@ -6,6 +6,7 @@ import Information from "./information";
 import Informationextended from "./informationextended";
 import Footer from "./footer";
 import Sneakypeak from "./sneakypeak";
+import Identityvisuals from "./identityvisuals";
 const PamperProCasestudy = () => {
 
   const { containerRef } = useScrollOverlaying(".pamperpro-casestudy-overlay-section", {
@@ -27,6 +28,9 @@ const PamperProCasestudy = () => {
         </section>
         <section>
           <Informationextended />
+        </section>
+        <section>
+          <Identityvisuals />
         </section>
         <section>
           <Sneakypeak />
