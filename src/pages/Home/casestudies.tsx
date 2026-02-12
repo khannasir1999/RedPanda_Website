@@ -42,8 +42,11 @@ const Casestudies = () => {
           className="casestudy-cards grid px-1 grid-cols-1 md:grid-cols-2 grid-rows-3 gap-5"
           ref={casestudiesRef}
         >
-          {CASE_STUDIES.map((stdy) => (
-            <Singlecasestudy stdy={stdy} key={stdy} />
+          {CASE_STUDIES.map((caseStudy, index) => (
+            <Singlecasestudy 
+              caseStudy={caseStudy} 
+              key={`${caseStudy.image}-${index}`}
+            />
           ))}
         </div>
       </section>

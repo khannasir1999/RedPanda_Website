@@ -5,12 +5,16 @@ import cstdyimg4 from "/assets/images/casestudies/study4.png";
 import cstdyimg5 from "/assets/images/casestudies/study5.png";
 import cstdyimg6 from "/assets/images/casestudies/study6.png";
 
+export interface CaseStudy {
+  image: string;
+  slug?: string;
+}
 
-export const CASE_STUDIES = [
-  cstdyimg1,
-  cstdyimg2,
-  cstdyimg3,
-  cstdyimg4,
-  cstdyimg5,
-  cstdyimg6,
+export const CASE_STUDIES: CaseStudy[] = [
+  { image: cstdyimg1, slug: "pamper-pro" },
+  { image: cstdyimg2, slug: "case-study-2" },
+  { image: cstdyimg3 },
+  { image: cstdyimg4 },
+  { image: cstdyimg5 },
+  { image: cstdyimg6 },
 ];

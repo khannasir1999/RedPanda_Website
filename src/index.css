@@ -1,4 +1,5 @@
 @import "./fonts.css";
+@import "./lufga-webfont/style.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,6 +8,7 @@
 @theme {
   --font-chillax: "Chillax", sans-serif;
   --font-comforter: "Comforter", sans-serif;
+  --font-lufga: "Lufga Regular", sans-serif;
   --color-red-primary-500: #d31f23;
   --color-red-primary-400: #ea2227;
   --color-red-primary-100:#FDE9E9;

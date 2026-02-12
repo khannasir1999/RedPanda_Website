@@ -11,6 +11,7 @@ import Getaquote from "../pages/GetAQuote/getaquote";
 import Portfolio from "@/pages/Portfolio/portfolio";
 import NotFound from "../pages/404/404";
 import ThankYou from "../pages/Thankyou/thankyou";
+import PamperProCaseStudy from "../pages/PamperproCasestudy";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/portfolio",
         element: <Portfolio />,
+      },
+      {
+        path: "/casestudy/pamper-pro",
+        element: <PamperProCaseStudy />,
       },
       {
         path: "*",

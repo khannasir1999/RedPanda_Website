@@ -148,7 +148,7 @@ const Herosection = () => {
 
 
 
-      <div className="absolute bottom-0 left-0 -right-30 h-[53%] pointer-events-auto z-10 overflow-visible opacity-30">
+      <div className="absolute bottom-0 left-0 -right-30 h-[53%] pointer-events-auto z-40 overflow-visible">
         <div className="relative w-full h-full flex justify-center items-center -space-x-20 mt-50">
           {heroBackgroundImages.map((item, index) => {
             return (
@@ -160,7 +160,19 @@ const Herosection = () => {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="origin-top-left rounded-[33.76px] opacity-40 hover:opacity-60 transition-opacity cursor-pointer"
+                className="group relative origin-top-left rounded-[33.76px] cursor-pointer overflow-hidden after:content-[''] after:absolute after:inset-0 after:rounded-[33.76px] after:bg-black/30 after:opacity-100 after:transition-opacity group-hover:after:opacity-0"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.zIndex = "999";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.zIndex = String(index + 1);
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.zIndex = "999";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.zIndex = String(index + 1);
+                }}
                 style={{
                   transform: `matrix(0.92, -0.39, -0.13, 0.99, 0, 0)`,
                   zIndex: index + 1,
@@ -169,10 +181,7 @@ const Herosection = () => {
                 <img
                   src={item.image}
                   alt={`Image ${index + 1}`}
-                  className="w-full h-full object-contain rounded-[33.76px]"
-                  style={{
-                    filter: 'brightness(0.7) saturate(0.8)',
-                  }}
+                  className="w-full h-full object-contain rounded-[33.76px] opacity-100 filter brightness-[.5] saturate-[.8] group-hover:brightness-100 group-hover:saturate-100"
                   onError={(e) => {
                     console.warn(`Image ${item.image} failed to load`);
                     (e.target as HTMLImageElement).style.display = 'none';
@@ -186,13 +195,13 @@ const Herosection = () => {
       
       <div 
         ref={cloudyLayerRef}
-        className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none z-30 w-full flex "
+        className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none z-100 w-full flex "
       >
         <img src={cloudyimage2} alt="" className="w-full h-full object-cover" />
         <img src={cloudyimage1} alt="" className="w-full h-full object-cover " />
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center z-50">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center z-50 pointer-events-none">
         <img 
           ref={pandaRef}
           src={pandaimage} 
