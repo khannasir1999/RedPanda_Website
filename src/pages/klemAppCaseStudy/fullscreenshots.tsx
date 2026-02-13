@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Klems1 from "../../assets/images/KlemApp/Klemsfullss.png";
 import Klems2 from "../../assets/images/KlemApp/Klemfullss2.png";
 import Klems3 from "../../assets/images/KlemApp/klemsfullss3.png";
@@ -8,7 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from "@/ui/carousel";
 
 const FullScreenshots = () => {
@@ -19,7 +18,6 @@ const FullScreenshots = () => {
     Klems4,
     Klems5
   ];
-  const [api, setApi] = useState<CarouselApi>();
 
 
   return (
@@ -33,7 +31,6 @@ const FullScreenshots = () => {
               loop: true,
             }}
             className="w-full"
-            setApi={setApi}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {allScreenshots.map((screenshot, index) => (
