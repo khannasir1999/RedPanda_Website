@@ -2,6 +2,7 @@ import HeaderFooterLayout from "@/layout/headerfooterlayout";
 import Herosection from "./herosection";
 import Information from "./information";
 import AppScreenshots from "./appscreenshots";
+import FullScreenshots from "./fullscreenshots";
 
 const KlemAppCaseStudy = () => {
   return (
@@ -9,6 +10,7 @@ const KlemAppCaseStudy = () => {
       <Herosection />
       <Information />
       <AppScreenshots />
+      <FullScreenshots />
     </HeaderFooterLayout>
   );
 };
