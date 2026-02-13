@@ -12,6 +12,7 @@ import Portfolio from "@/pages/Portfolio/portfolio";
 import NotFound from "../pages/404/404";
 import ThankYou from "../pages/Thankyou/thankyou";
 import PamperProCaseStudy from "../pages/PamperproCasestudy";
+import KlemAppCaseStudy from "../pages/klemAppCaseStudy";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/casestudy/pamper-pro",
         element: <PamperProCaseStudy />,
+      },
+      {
+        path: "/casestudy/klem-app",
+        element: <KlemAppCaseStudy />,
       },
       {
         path: "*",

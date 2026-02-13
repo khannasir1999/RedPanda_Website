@@ -4,6 +4,7 @@ import cstdyimg3 from "/assets/images/casestudies/study3.png";
 import cstdyimg4 from "/assets/images/casestudies/study4.png";
 import cstdyimg5 from "/assets/images/casestudies/study5.png";
 import cstdyimg6 from "/assets/images/casestudies/study6.png";
+import KlemAppImg from  "../../src/assets/images/KlemApp/KlemAppCaseStudy.png"
 
 export interface CaseStudy {
   image: string;
@@ -12,6 +13,7 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   { image: cstdyimg1, slug: "pamper-pro" },
+  { image: KlemAppImg, slug: "klem-app" },
   { image: cstdyimg2, slug: "case-study-2" },
   { image: cstdyimg3 },
   { image: cstdyimg4 },

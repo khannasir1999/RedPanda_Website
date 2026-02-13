@@ -1691,6 +1691,15 @@ export const RoundedCornersIcon = ({ height, width, ...props }: IconProps) => {
   );
 };
 
+export const Klemdoublearrowicon = ({ height, width, ...props }: IconProps) => {
+  return (
+    <svg width={width ?? 204} height={height ?? 70} viewBox="0 0 409 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M146 126.5L270 2.5M270 2.5V126.5M270 2.5H146" stroke="#E88B41" stroke-width="5"/>
+    <path d="M407 2.5L283 126.5M283 126.5V2.5M283 126.5H407" stroke="#E88B41" stroke-width="5"/>
+    </svg>    
+  );
+};
+
 
 
 
